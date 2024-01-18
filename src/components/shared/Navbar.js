@@ -9,9 +9,6 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import Image from "next/image";
 import Logo from "@/assets/logo.svg";
@@ -27,7 +24,7 @@ const navLinks = [
   { route: "News", pathname: "/news" },
 ];
 
-function Navbar() {
+const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -117,19 +114,20 @@ function Navbar() {
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {navLinks.map((navLink) => (
-              <Link key={navLink.pathname} href={navLink.pathname}>
-                <Button
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white", display: "block" }}
-                >
-                  {navLink.route}
-                </Button>
+              <Link
+                onClick={handleCloseNavMenu}
+                key={navLink.pathname}
+                href={navLink.pathname}
+                style={{ margin: "2px 4px", color: "white", display: "block" }}
+              >
+                {navLink.route}
               </Link>
             ))}
           </Box>
 
           <Box
             sx={{
+              display: { xs: "none", sm: "flex" },
               flexGrow: 0,
               "& svg": {
                 color: "white",
@@ -153,5 +151,5 @@ function Navbar() {
       </Container>
     </AppBar>
   );
-}
+};
 export default Navbar;
