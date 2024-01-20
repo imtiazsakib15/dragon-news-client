@@ -11,7 +11,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import MenuItem from "@mui/material/MenuItem";
 import Image from "next/image";
-import Logo from "@/assets/logo.svg";
+import Logo from "@/assets/logo.png";
 import Link from "next/link";
 import { Facebook, LinkedIn, Twitter, YouTube } from "@mui/icons-material";
 import Header from "./Header";
@@ -19,7 +19,7 @@ import Header from "./Header";
 const navLinks = [
   { route: "Home", pathname: "/" },
   { route: "Pages", pathname: "/pages" },
-  { route: "Category", pathname: "/category" },
+  { route: "Category", pathname: "/categories" },
   { route: "News", pathname: "/news" },
 ];
 
