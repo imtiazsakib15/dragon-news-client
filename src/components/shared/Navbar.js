@@ -19,7 +19,7 @@ import Header from "./Header";
 const navLinks = [
   { route: "Home", pathname: "/" },
   { route: "Pages", pathname: "/pages" },
-  { route: "Category", pathname: "/categories" },
+  { route: "Category", pathname: "/categories/All-News" },
   { route: "News", pathname: "/news" },
 ];
 
