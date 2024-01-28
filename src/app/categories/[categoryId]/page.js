@@ -1,5 +1,9 @@
-const Categories = () => {
-  return <div>c</div>;
+const Categories = ({ searchParams }) => {
+  return (
+    <div>
+      <h1>{searchParams?.categoryId}</h1>
+    </div>
+  );
 };
 
 export default Categories;

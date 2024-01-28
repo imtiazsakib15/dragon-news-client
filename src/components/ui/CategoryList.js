@@ -14,7 +14,9 @@ async function CategoryList() {
         </Typography>
         {allCategories.map((category) => (
           <div style={{ padding: "10px 5px" }} key={category.id}>
-            <Link href={`/categories/${category.title}`}>{category.title}</Link>
+            <Link href={`/categories/news?category=${category.title}`}>
+              {category.title}
+            </Link>
           </div>
         ))}
       </Box>
