@@ -7,6 +7,7 @@ import {
   Grid,
 } from "@mui/material";
 import Image from "next/image";
+import Link from "next/link";
 
 const Categories = async ({ searchParams }) => {
   const { category } = searchParams;
@@ -24,46 +25,53 @@ const Categories = async ({ searchParams }) => {
       >
         {news?.map((singleNews) => (
           <Grid key={singleNews.id} item xs={6}>
-            <Card>
-              <CardActionArea
-                sx={{
-                  "& img": {
-                    width: "100%",
-                    height: "250px",
-                  },
-                }}
-              >
-                <Image
-                  width="100"
-                  height="50"
-                  src={singleNews.image_url}
-                  alt="green iguana"
-                />
-                <CardContent>
-                  <Typography
-                    sx={{
-                      p: 0.5,
-                      bgcolor: "red",
-                      color: "white",
-                      fontSize: "12px",
-                    }}
-                    gutterBottom
-                    variant="h5"
-                    component="span"
-                  >
-                    {singleNews.category}
-                  </Typography>
-                  <Typography gutterBottom variant="h5" component="div">
-                    Lizard
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with
-                    over 6,000 species, ranging across all continents except
-                    Antarctica
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
+            <Link
+              href={`/${singleNews.category.toLowerCase()}/${singleNews._id}`}
+              style={{ textDecoration: "none" }}
+            >
+              <Card>
+                <CardActionArea
+                  sx={{
+                    "& img": {
+                      width: "100%",
+                      height: "250px",
+                    },
+                  }}
+                >
+                  <Image
+                    width="100"
+                    height="50"
+                    src={singleNews.image_url}
+                    alt="green iguana"
+                  />
+                  <CardContent>
+                    <Typography
+                      sx={{
+                        p: 0.5,
+                        bgcolor: "red",
+                        color: "white",
+                        fontSize: "12px",
+                      }}
+                      gutterBottom
+                      variant="h5"
+                      component="span"
+                    >
+                      {singleNews.category}
+                    </Typography>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {singleNews.title.length > 30
+                        ? singleNews.title.slice(0, 30) + "..."
+                        : singleNews.title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {singleNews.details.length > 30
+                        ? singleNews.details.slice(0, 300) + "..."
+                        : singleNews.details}
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            </Link>
           </Grid>
         ))}
       </Grid>
